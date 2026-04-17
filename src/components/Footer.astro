@@ -1,0 +1,81 @@
+---
+const legalLinks = [
+  { href: '/privacy-policy', label: 'Privacy Policy' },
+  { href: '/terms', label: 'Terms & Conditions' },
+  { href: '/cookie-policy', label: 'Cookie Policy' },
+];
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <div class="monogram" style="width:36px;height:36px;">
+        <span style="font-size:0.85rem;">F/L</span>
+      </div>
+      <div>
+        <p class="footer__name">The Face Lab Studio</p>
+        <p class="footer__reg">The Face Lab By Paige Titchener Ltd &mdash; Company No. 16441048</p>
+      </div>
+    </div>
+
+    <div class="footer__locations">
+      <div class="footer__location">
+        <p class="footer__location-name">Oxfordshire</p>
+        <p>76 High Street, Witney, OX28 6HL</p>
+      </div>
+      <div class="footer__location">
+        <p class="footer__location-name">Cotswolds</p>
+        <p>The Riverside, Lechlade, GL7 3AQ</p>
+      </div>
+    </div>
+
+    <div class="footer__book">
+      <a href="/book" class="btn btn--outline">Book Online</a>
+    </div>
+  </div>
+
+  <div class="container footer__bottom">
+    <nav class="footer__legal" aria-label="Legal">
+      {legalLinks.map(link => (
+        <a href={link.href}>{link.label}</a>
+      ))}
+    </nav>
+    <p class="footer__credit">
+      Website by <a href="https://brandonburton.co.uk" style="text-decoration:underline;text-underline-offset:3px;">Brandon Burton</a>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--rule);
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-md);
+  }
+  .footer__inner {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: var(--space-lg);
+    align-items: start;
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: var(--space-md);
+  }
+  .footer__brand { display: flex; align-items: flex-start; gap: 0.75rem; }
+  .footer__name { font-size: 0.85rem; font-weight: 500; margin-bottom: 0.2rem; }
+  .footer__reg { font-size: 0.72rem; color: var(--soft); font-weight: 300; }
+  .footer__locations { display: flex; gap: var(--space-lg); }
+  .footer__location { font-size: 0.8rem; color: var(--mid); font-weight: 300; }
+  .footer__location-name { font-weight: 500; color: var(--ink); margin-bottom: 0.2rem; font-size: 0.8rem; }
+  .footer__bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .footer__legal { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+  .footer__legal a { font-size: 0.72rem; color: var(--soft); font-weight: 300; transition: color var(--transition); }
+  .footer__legal a:hover { color: var(--ink); }
+  .footer__credit { font-size: 0.72rem; color: var(--soft); font-weight: 300; }
+
+  @media (max-width: 768px) {
+    .footer__inner { grid-template-columns: 1fr; gap: var(--space-md); }
+    .footer__locations { flex-direction: column; gap: var(--space-sm); }
+  }
+</style>

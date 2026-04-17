@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BeautySalon",
+  "name": "The Face Lab Studio",
+  "url": "https://thefacelabstudios.com",
+  "logo": "https://thefacelabstudios.com/logo.png",
+  "description": "Brow and skin specialists with salons in Witney, Oxfordshire and Lechlade, Cotswolds.",
+  "hasMap": ["https://maps.google.com/?q=76+High+Street+Witney"],
+  "location": [
+    {
+      "@type": "BeautySalon",
+      "name": "The Face Lab Oxfordshire",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "76 High Street",
+        "addressLocality": "Witney",
+        "addressRegion": "Oxfordshire",
+        "postalCode": "OX28 6HL",
+        "addressCountry": "GB"
+      }
+    },
+    {
+      "@type": "BeautySalon",
+      "name": "The Face Lab Cotswolds",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "The Riverside",
+        "addressLocality": "Lechlade",
+        "addressRegion": "Gloucestershire",
+        "postalCode": "GL7 3AQ",
+        "addressCountry": "GB"
+      }
+    }
+  ]
+});
+---
+
+<Layout
+  title="The Face Lab Studio — Brow & Skin Specialists | Witney & Cotswolds"
+  description="The Face Lab Studio — expert brow and skin treatments in Witney, Oxfordshire and Lechlade, Cotswolds. Browse treatments and book online."
+>
+  <Fragment slot="schema">
+    <script type="application/ld+json" set:html={schema} />
+  </Fragment>
+
+  <!-- HERO -->
+  <section class="hero section">
+    <div class="container hero__inner">
+      <p class="eyebrow">Brow &amp; Skin Specialists</p>
+      <h1>Something <em>beautiful</em><br>is on its way.</h1>
+      <p class="hero__sub">Expert treatments in Witney, Oxfordshire and Lechlade, Cotswolds.</p>
+      <div class="hero__ctas">
+        <a href="/book" class="btn btn--primary">Book an Appointment</a>
+        <a href="/services-witney" class="btn btn--outline">View Treatments</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATIONS -->
+  <section class="section locations">
+    <div class="container">
+      <p class="eyebrow" style="text-align:center;margin-bottom:1rem;">Our Salons</p>
+      <h2 style="text-align:center;margin-bottom:var(--space-lg);">Two beautiful locations</h2>
+      <div class="locations__grid">
+        <a href="/services-witney" class="location-card">
+          <div class="location-card__img location-card__img--placeholder"></div>
+          <div class="location-card__body">
+            <p class="eyebrow">Oxfordshire</p>
+            <h3>The Face Lab Witney</h3>
+            <p>76 High Street, Witney, OX28 6HL</p>
+            <span class="btn btn--outline" style="margin-top:1rem;">View Treatments →</span>
+          </div>
+        </a>
+        <a href="/services-cotswolds" class="location-card">
+          <div class="location-card__img location-card__img--placeholder"></div>
+          <div class="location-card__body">
+            <p class="eyebrow">Cotswolds</p>
+            <h3>The Face Lab Cotswolds</h3>
+            <p>The Riverside, Lechlade, GL7 3AQ</p>
+            <span class="btn btn--outline" style="margin-top:1rem;">View Treatments →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -6,13 +6,13 @@ const schema = JSON.stringify({
   "@type": "BeautySalon",
   "name": "The Face Lab Studio",
   "url": "https://thefacelabstudios.com",
-  "logo": "https://thefacelabstudios.com/logo.png",
   "description": "Brow and skin specialists with salons in Witney, Oxfordshire and Lechlade, Cotswolds.",
-  "hasMap": ["https://maps.google.com/?q=76+High+Street+Witney"],
   "location": [
     {
       "@type": "BeautySalon",
       "name": "The Face Lab Oxfordshire",
+      "telephone": "",
+      "openingHours": ["Mo 09:00-21:00","We 09:00-21:00","Th 09:00-21:00","Fr 09:00-18:00","Sa 09:00-15:00"],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "76 High Street",
@@ -25,9 +25,10 @@ const schema = JSON.stringify({
     {
       "@type": "BeautySalon",
       "name": "The Face Lab Cotswolds",
+      "openingHours": ["Mo 09:00-17:00","Tu 09:00-20:00","We 09:00-20:00","Th 11:00-18:00","Fr 09:00-17:00","Sa 10:00-16:00"],
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "The Riverside",
+        "streetAddress": "The Riverside, Park End Wharf",
         "addressLocality": "Lechlade",
         "addressRegion": "Gloucestershire",
         "postalCode": "GL7 3AQ",
@@ -40,21 +41,55 @@ const schema = JSON.stringify({
 
 <Layout
   title="The Face Lab Studio — Brow & Skin Specialists | Witney & Cotswolds"
-  description="The Face Lab Studio — expert brow and skin treatments in Witney, Oxfordshire and Lechlade, Cotswolds. Browse treatments and book online."
+  description="The Face Lab Studio — expert brow and skin treatments in Witney, Oxfordshire and Lechlade, Cotswolds. Brow lamination, LVL lashes, skin treatments, nails and more. Book online."
 >
   <Fragment slot="schema">
     <script type="application/ld+json" set:html={schema} />
   </Fragment>
 
   <!-- HERO -->
-  <section class="hero section">
-    <div class="container hero__inner">
-      <p class="eyebrow">Brow &amp; Skin Specialists</p>
-      <h1>Something <em>beautiful</em><br>is on its way.</h1>
-      <p class="hero__sub">Expert treatments in Witney, Oxfordshire and Lechlade, Cotswolds.</p>
+  <section class="hero">
+    <div class="hero__bg">
+      <img
+        src="/images/cotswolds/cotswolds-treatment-room.jpg"
+        alt="The Face Lab Cotswolds treatment room"
+        loading="eager"
+        class="hero__img"
+      />
+      <div class="hero__overlay"></div>
+    </div>
+    <div class="container hero__content">
+      <p class="eyebrow hero__eyebrow">Brow &amp; Skin Specialists</p>
+      <h1 class="hero__title">Where beauty<br><em>meets intention.</em></h1>
+      <p class="hero__sub">Expert treatments in Witney, Oxfordshire<br>and Lechlade, Cotswolds.</p>
       <div class="hero__ctas">
         <a href="/book" class="btn btn--primary">Book an Appointment</a>
-        <a href="/services-witney" class="btn btn--outline">View Treatments</a>
+        <a href="/services-witney" class="btn btn--outline hero__btn-outline">View Treatments</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <section class="stats">
+    <div class="container stats__grid">
+      <div class="stat">
+        <p class="stat__number">5.0</p>
+        <p class="stat__label">Fresha Rating</p>
+      </div>
+      <div class="stat__divider"></div>
+      <div class="stat">
+        <p class="stat__number">330+</p>
+        <p class="stat__label">5-Star Reviews</p>
+      </div>
+      <div class="stat__divider"></div>
+      <div class="stat">
+        <p class="stat__number">2</p>
+        <p class="stat__label">Salon Locations</p>
+      </div>
+      <div class="stat__divider"></div>
+      <div class="stat">
+        <p class="stat__number">95+</p>
+        <p class="stat__label">Treatments</p>
       </div>
     </div>
   </section>
@@ -62,28 +97,218 @@ const schema = JSON.stringify({
   <!-- LOCATIONS -->
   <section class="section locations">
     <div class="container">
-      <p class="eyebrow" style="text-align:center;margin-bottom:1rem;">Our Salons</p>
-      <h2 style="text-align:center;margin-bottom:var(--space-lg);">Two beautiful locations</h2>
+      <div class="section-header">
+        <p class="eyebrow">Our Salons</p>
+        <h2>Two beautiful locations</h2>
+        <div class="divider" style="margin: 1rem auto 0;"></div>
+      </div>
       <div class="locations__grid">
         <a href="/services-witney" class="location-card">
-          <div class="location-card__img location-card__img--placeholder"></div>
+          <div class="location-card__img">
+            <img src="/images/witney/witney-hero.jpg" alt="The Face Lab Witney salon" loading="lazy" />
+          </div>
           <div class="location-card__body">
             <p class="eyebrow">Oxfordshire</p>
             <h3>The Face Lab Witney</h3>
-            <p>76 High Street, Witney, OX28 6HL</p>
-            <span class="btn btn--outline" style="margin-top:1rem;">View Treatments →</span>
+            <p class="location-card__address">76 High Street, Witney, OX28 6HL</p>
+            <p class="location-card__hours">Mon, Wed–Thu 9am–9pm · Fri 9am–6pm · Sat 9am–3pm</p>
+            <span class="location-card__link">View treatments →</span>
           </div>
         </a>
         <a href="/services-cotswolds" class="location-card">
-          <div class="location-card__img location-card__img--placeholder"></div>
+          <div class="location-card__img">
+            <img src="/images/cotswolds/cotswolds-lounge.jpg" alt="The Face Lab Cotswolds salon" loading="lazy" />
+          </div>
           <div class="location-card__body">
             <p class="eyebrow">Cotswolds</p>
             <h3>The Face Lab Cotswolds</h3>
-            <p>The Riverside, Lechlade, GL7 3AQ</p>
-            <span class="btn btn--outline" style="margin-top:1rem;">View Treatments →</span>
+            <p class="location-card__address">The Riverside, Lechlade, GL7 3AQ</p>
+            <p class="location-card__hours">Mon 9am–5pm · Tue–Wed 9am–8pm · Thu 11am–6pm · Fri 9am–5pm · Sat 10am–4pm</p>
+            <span class="location-card__link">View treatments →</span>
           </div>
         </a>
       </div>
     </div>
   </section>
+
+  <!-- ABOUT SNIPPET -->
+  <section class="section about-snap">
+    <div class="container about-snap__inner">
+      <div class="about-snap__img">
+        <img src="/images/cotswolds/cotswolds-candles.jpg" alt="The Face Lab Studio ambience" loading="lazy" />
+      </div>
+      <div class="about-snap__text">
+        <p class="eyebrow">About Us</p>
+        <h2>Beauty with intention</h2>
+        <div class="divider" style="margin: 1rem 0;"></div>
+        <p>At The Face Lab Studio, expertise in brow and skin treatments meets a commitment to enhancing natural beauty. From our woman-owned studio in Witney to our riverside sanctuary in Lechlade, every visit is tailored, personal and rejuvenating.</p>
+        <p style="margin-top:1rem;">We believe great results start with great care — and that confidence comes from feeling genuinely looked after.</p>
+        <a href="/about" class="btn btn--outline" style="margin-top:1.75rem;">Meet the team</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES OVERVIEW -->
+  <section class="section services-overview">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">What We Offer</p>
+        <h2>Our treatments</h2>
+        <div class="divider" style="margin: 1rem auto 0;"></div>
+      </div>
+      <div class="services__grid">
+        <div class="service-card">
+          <p class="service-card__title">Brows</p>
+          <p class="service-card__desc">Lamination, tinting, waxing, threading and HD brows</p>
+        </div>
+        <div class="service-card">
+          <p class="service-card__title">Lashes</p>
+          <p class="service-card__desc">LVL lifts, tinting, extensions and infills</p>
+        </div>
+        <div class="service-card">
+          <p class="service-card__title">Skin Treatments</p>
+          <p class="service-card__desc">Microneedling, skin peels, facials and glow therapy</p>
+        </div>
+        <div class="service-card">
+          <p class="service-card__title">Nails</p>
+          <p class="service-card__desc">Gel manicures, pedicures, gel polish and nail art</p>
+        </div>
+        <div class="service-card">
+          <p class="service-card__title">Body & Wellness</p>
+          <p class="service-card__desc">Massage, lymphatic drainage, body wraps and IV drips</p>
+        </div>
+        <div class="service-card">
+          <p class="service-card__title">Lip Blush & PMU</p>
+          <p class="service-card__desc">Semi-permanent makeup and lip colour treatments</p>
+        </div>
+      </div>
+      <div class="services__ctas">
+        <a href="/services-witney" class="btn btn--outline">Witney Menu</a>
+        <a href="/services-cotswolds" class="btn btn--outline">Cotswolds Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section reviews">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">What Our Clients Say</p>
+        <h2>5.0 on Fresha</h2>
+        <div class="divider" style="margin: 1rem auto 0;"></div>
+      </div>
+      <div class="reviews__grid">
+        <div class="review-card">
+          <div class="review-card__stars">★★★★★</div>
+          <p class="review-card__text">"Paige is so talented and my brows look amazing! The salon is absolutely beautiful."</p>
+          <p class="review-card__author">Kathleen N — Witney</p>
+        </div>
+        <div class="review-card">
+          <p class="review-card__stars">★★★★★</div>
+          <p class="review-card__text">"I felt so relaxed and left feeling confident. I already planned my next facial."</p>
+          <p class="review-card__author">Brittiny G — Cotswolds</p>
+        </div>
+        <div class="review-card">
+          <div class="review-card__stars">★★★★★</div>
+          <p class="review-card__text">"Risha was great — really professional. Beautiful salon with such a welcoming atmosphere."</p>
+          <p class="review-card__author">Katherine L — Witney</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOK CTA -->
+  <section class="book-cta">
+    <div class="container book-cta__inner">
+      <h2>Ready to treat yourself?</h2>
+      <p>Book online in seconds at either of our locations.</p>
+      <div class="book-cta__btns">
+        <a href="https://www.fresha.com/a/the-face-lab-oxfordshire-witney-76-high-street-r5n80gwm" target="_blank" rel="noopener" class="btn btn--primary">Book — Witney</a>
+        <a href="https://www.fresha.com/a/the-face-lab-cotswolds-lechlade-the-riverside-park-end-wharf-ihomrrjm" target="_blank" rel="noopener" class="btn btn--primary">Book — Cotswolds</a>
+      </div>
+    </div>
+  </section>
+
+<style>
+  /* Hero */
+  .hero { position: relative; min-height: 90vh; display: flex; align-items: center; overflow: hidden; }
+  .hero__bg { position: absolute; inset: 0; }
+  .hero__img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .hero__overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(26,6,8,0.72) 0%, rgba(26,6,8,0.35) 100%); }
+  .hero__content { position: relative; z-index: 2; max-width: 640px; padding: 6rem 1.5rem; }
+  .hero__eyebrow { color: rgba(250,249,247,0.65); margin-bottom: 1rem; }
+  .hero__title { color: #fff; font-size: clamp(2.4rem, 6vw, 4rem); margin-bottom: 1.25rem; }
+  .hero__title em { font-style: italic; color: rgba(250,249,247,0.85); }
+  .hero__sub { color: rgba(250,249,247,0.75); font-size: 1.05rem; line-height: 1.7; margin-bottom: 2rem; font-weight: 300; }
+  .hero__ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .hero__btn-outline { border-color: rgba(250,249,247,0.4); color: #fff; }
+  .hero__btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+
+  /* Stats */
+  .stats { background: var(--accent); padding: 1.75rem 0; }
+  .stats__grid { display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+  .stat { text-align: center; }
+  .stat__number { font-size: 1.6rem; font-weight: 300; color: rgba(250,249,247,0.95); letter-spacing: -0.02em; }
+  .stat__label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,249,247,0.5); margin-top: 0.2rem; }
+  .stat__divider { width: 1px; height: 36px; background: rgba(250,249,247,0.15); }
+
+  /* Section header */
+  .section-header { text-align: center; margin-bottom: var(--space-lg); }
+  .section-header h2 { margin-top: 0.5rem; }
+
+  /* Location cards */
+  .locations__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .location-card { display: flex; flex-direction: column; border: 1px solid var(--rule); border-radius: var(--radius-md); overflow: hidden; text-decoration: none; color: var(--ink); background: var(--white); transition: box-shadow var(--transition), border-color var(--transition); }
+  .location-card:hover { border-color: var(--ink); box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
+  .location-card__img { aspect-ratio: 4/3; overflow: hidden; background: var(--rule); }
+  .location-card__img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+  .location-card:hover .location-card__img img { transform: scale(1.03); }
+  .location-card__body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; gap: 0.4rem; }
+  .location-card__body h3 { margin-top: 0.25rem; }
+  .location-card__address { font-size: 0.85rem; color: var(--mid); font-weight: 300; }
+  .location-card__hours { font-size: 0.78rem; color: var(--soft); font-weight: 300; line-height: 1.5; margin-top: 0.25rem; }
+  .location-card__link { margin-top: auto; padding-top: 1rem; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.04em; color: var(--accent); }
+
+  /* About snap */
+  .about-snap__inner { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl); align-items: center; }
+  .about-snap__img { border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4/5; }
+  .about-snap__img img { width: 100%; height: 100%; object-fit: cover; }
+  .about-snap__text p { font-size: 0.95rem; color: var(--mid); line-height: 1.8; }
+
+  /* Services grid */
+  .services__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: var(--space-lg); }
+  .service-card { padding: 1.5rem; border: 1px solid var(--rule); border-radius: var(--radius-md); background: var(--white); transition: border-color var(--transition); }
+  .service-card:hover { border-color: var(--accent); }
+  .service-card__title { font-size: 0.95rem; font-weight: 500; margin-bottom: 0.4rem; }
+  .service-card__desc { font-size: 0.82rem; color: var(--mid); font-weight: 300; line-height: 1.6; }
+  .services__ctas { display: flex; gap: 1rem; justify-content: center; }
+
+  /* Reviews */
+  .reviews { background: var(--white); }
+  .reviews__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .review-card { padding: 1.75rem; border: 1px solid var(--rule); border-radius: var(--radius-md); background: var(--bg); }
+  .review-card__stars { color: var(--accent); font-size: 0.9rem; margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+  .review-card__text { font-size: 0.9rem; color: var(--mid); line-height: 1.7; font-weight: 300; font-style: italic; margin-bottom: 1rem; }
+  .review-card__author { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--soft); }
+
+  /* Book CTA */
+  .book-cta { background: var(--accent); padding: var(--space-xl) 0; text-align: center; }
+  .book-cta__inner h2 { color: rgba(250,249,247,0.95); margin-bottom: 0.75rem; }
+  .book-cta__inner p { color: rgba(250,249,247,0.6); font-weight: 300; margin-bottom: 2rem; }
+  .book-cta__btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .book-cta__btns .btn--primary { background: rgba(250,249,247,0.12); border-color: rgba(250,249,247,0.3); color: rgba(250,249,247,0.95); }
+  .book-cta__btns .btn--primary:hover { background: rgba(250,249,247,0.22); border-color: rgba(250,249,247,0.6); box-shadow: none; }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .locations__grid, .about-snap__inner, .reviews__grid { grid-template-columns: 1fr; }
+    .services__grid { grid-template-columns: repeat(2, 1fr); }
+    .stats__grid { gap: 1rem; }
+    .stat__divider { display: none; }
+  }
+  @media (max-width: 540px) {
+    .services__grid { grid-template-columns: 1fr; }
+    .hero__ctas { flex-direction: column; }
+  }
+</style>
 </Layout>

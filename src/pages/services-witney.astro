@@ -1,16 +1,227 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const treatments = [
+  {
+    category: "Brows",
+    items: [
+      { name: "Brow Lamination", duration: "1 hr", price: "£50" },
+      { name: "Lamination Maintenance", duration: "30 min", price: "£35" },
+      { name: "Brow Tint", duration: "30 min", price: "£15" },
+      { name: "Brow Wax & Tint", duration: "45 min", price: "£25" },
+      { name: "HD Brows", duration: "1 hr", price: "£45" },
+    ]
+  },
+  {
+    category: "Lashes",
+    items: [
+      { name: "LVL Lash Lift & Tint", duration: "1 hr", price: "£55" },
+      { name: "Lash Tint", duration: "30 min", price: "£15" },
+      { name: "Face Lab Lift Combo (Lamination & LVL)", duration: "1 hr", price: "£90" },
+    ]
+  },
+  {
+    category: "Lip Blush",
+    items: [
+      { name: "Lip Blush", duration: "2 hrs", price: "POA" },
+      { name: "Lip Blush Top Up", duration: "1.5 hrs", price: "POA" },
+    ]
+  },
+  {
+    category: "Nails",
+    items: [
+      { name: "Gel Manicure", duration: "1 hr", price: "from £35" },
+      { name: "Gel Pedicure", duration: "1 hr", price: "from £40" },
+      { name: "Gel Polish (Hands)", duration: "45 min", price: "from £25" },
+      { name: "Gel Polish (Feet)", duration: "45 min", price: "from £30" },
+      { name: "Nail Art", duration: "varies", price: "POA" },
+    ]
+  },
+  {
+    category: "Skin Treatments",
+    items: [
+      { name: "Microneedling Glow Therapy", duration: "1 hr", price: "POA" },
+      { name: "Skin Peel", duration: "45 min", price: "POA" },
+      { name: "Million Dollar Platinum Package", duration: "1.5 hrs", price: "POA" },
+      { name: "Polynucleotide Needling", duration: "1 hr", price: "POA" },
+      { name: "Dermaplaning", duration: "45 min", price: "POA" },
+    ]
+  },
+  {
+    category: "Waxing",
+    items: [
+      { name: "Eyebrow Wax", duration: "15 min", price: "£10" },
+      { name: "Lip Wax", duration: "15 min", price: "£8" },
+      { name: "Full Leg Wax", duration: "45 min", price: "£35" },
+      { name: "Underarm Wax", duration: "20 min", price: "£15" },
+      { name: "Bikini Wax", duration: "30 min", price: "£20" },
+    ]
+  },
+  {
+    category: "Lymphatic Drainage",
+    items: [
+      { name: "Full Body Lymphatic Drainage", duration: "1 hr", price: "POA" },
+      { name: "Facial Lymphatic Drainage", duration: "45 min", price: "POA" },
+    ]
+  },
+  {
+    category: "Massage",
+    items: [
+      { name: "Full Body Massage", duration: "1 hr", price: "POA" },
+      { name: "Back, Neck & Shoulder Massage", duration: "30 min", price: "POA" },
+      { name: "Hot Stone Massage", duration: "1 hr", price: "POA" },
+    ]
+  },
+  {
+    category: "IV Drips",
+    items: [
+      { name: "IV Drip Therapy", duration: "45 min", price: "POA" },
+    ]
+  },
+  {
+    category: "Packages",
+    items: [
+      { name: "Bronze Holiday Prep Package", duration: "1 hr 35 min", price: "£70", badge: "Save 26%" },
+      { name: "Bridal Package", duration: "varies", price: "POA" },
+    ]
+  },
+];
 ---
+
 <Layout
   title="Treatments & Services | The Face Lab Witney, Oxfordshire"
-  description="Browse our full treatment menu at The Face Lab Witney — brow lamination, LVL lashes, semi-permanent makeup, skin treatments and more. Book online."
+  description="Browse our full treatment menu at The Face Lab Witney — brow lamination, LVL lashes, skin treatments, nails, waxing and more. Book online at 76 High Street, Witney."
 >
-  <section class="section">
+  <section class="page-hero section">
     <div class="container--text">
       <p class="eyebrow">Oxfordshire</p>
       <h1>Treatments — Witney</h1>
-      <p>76 High Street, Witney, OX28 6HL</p>
-      <!-- Treatment menu content goes here when received from Paige -->
+      <div class="divider" style="margin: 1rem 0;"></div>
+      <p class="page-hero__sub">76 High Street, Witney, OX28 6HL</p>
+      <div class="page-hero__hours">
+        <p><strong>Mon, Wed & Thu</strong> 9am – 9pm</p>
+        <p><strong>Fri</strong> 9am – 6pm &nbsp;·&nbsp; <strong>Sat</strong> 9am – 3pm</p>
+        <p><strong>Tue & Sun</strong> Closed</p>
+      </div>
+      <a
+        href="https://www.fresha.com/a/the-face-lab-oxfordshire-witney-76-high-street-r5n80gwm"
+        target="_blank" rel="noopener"
+        class="btn btn--primary"
+        style="margin-top: 1.75rem;"
+      >Book Online — Witney</a>
+    </div>
+  </section>
+
+  <section class="section treatments">
+    <div class="container">
+      <div class="treatments__note">
+        <p>Prices marked <strong>POA</strong> (price on application) — please contact us or book a consultation for a personalised quote. All prices include a complimentary consultation.</p>
+      </div>
+      {treatments.map(group => (
+        <div class="treatment-group">
+          <h2 class="treatment-group__title">{group.category}</h2>
+          <div class="treatment-group__items">
+            {group.items.map(item => (
+              <div class="treatment-item">
+                <div class="treatment-item__info">
+                  <p class="treatment-item__name">{item.name}</p>
+                  <p class="treatment-item__duration">{item.duration}</p>
+                </div>
+                <div class="treatment-item__right">
+                  {item.badge && <span class="treatment-item__badge">{item.badge}</span>}
+                  <p class="treatment-item__price">{item.price}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="book-cta">
+    <div class="container book-cta__inner">
+      <h2>Ready to book?</h2>
+      <p>Book your Witney appointment online via Fresha — instant confirmation.</p>
+      <div class="book-cta__btns">
+        <a href="https://www.fresha.com/a/the-face-lab-oxfordshire-witney-76-high-street-r5n80gwm" target="_blank" rel="noopener" class="btn btn--primary">Book Online — Witney</a>
+        <a href="/services-cotswolds" class="btn btn--primary">View Cotswolds Menu</a>
+      </div>
     </div>
   </section>
 </Layout>
+
+<style>
+  /* Page hero */
+  .page-hero { background: var(--white); border-bottom: 1px solid var(--rule); }
+  .page-hero h1 { margin-top: 0.5rem; }
+  .page-hero__sub { font-size: 0.95rem; color: var(--mid); font-weight: 300; }
+  .page-hero__hours { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.25rem; }
+  .page-hero__hours p { font-size: 0.85rem; color: var(--mid); font-weight: 300; }
+  .page-hero__hours strong { font-weight: 500; color: var(--ink); }
+
+  /* Treatments */
+  .treatments__note {
+    background: var(--accent-light);
+    border: 1px solid rgba(42,13,20,0.12);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.25rem;
+    margin-bottom: var(--space-lg);
+    font-size: 0.85rem;
+    color: var(--mid);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .treatment-group { margin-bottom: var(--space-lg); }
+  .treatment-group__title {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--soft);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .treatment-group__items { display: flex; flex-direction: column; gap: 0; }
+
+  .treatment-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.875rem 0;
+    border-bottom: 1px solid var(--rule);
+    gap: 1rem;
+  }
+  .treatment-item:last-child { border-bottom: none; }
+
+  .treatment-item__name { font-size: 0.92rem; font-weight: 400; color: var(--ink); }
+  .treatment-item__duration { font-size: 0.78rem; color: var(--soft); font-weight: 300; margin-top: 0.15rem; }
+  .treatment-item__right { display: flex; flex-direction: column; align-items: flex-end; gap: 0.2rem; flex-shrink: 0; }
+  .treatment-item__price { font-size: 0.9rem; font-weight: 500; color: var(--ink); white-space: nowrap; }
+  .treatment-item__badge {
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  /* Book CTA */
+  .book-cta { background: var(--accent); padding: var(--space-xl) 0; text-align: center; }
+  .book-cta__inner h2 { color: rgba(250,249,247,0.95); margin-bottom: 0.75rem; }
+  .book-cta__inner p { color: rgba(250,249,247,0.6); font-weight: 300; margin-bottom: 2rem; }
+  .book-cta__btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .book-cta__btns .btn--primary { background: rgba(250,249,247,0.12); border-color: rgba(250,249,247,0.3); color: rgba(250,249,247,0.95); }
+  .book-cta__btns .btn--primary:hover { background: rgba(250,249,247,0.22); border-color: rgba(250,249,247,0.6); box-shadow: none; }
+
+  @media (max-width: 540px) {
+    .treatment-item { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    .treatment-item__right { align-items: flex-start; }
+  }
+</style>

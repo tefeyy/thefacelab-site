@@ -1,18 +1,163 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
+
 <Layout
   title="Book Online | The Face Lab Studio — Witney & Cotswolds"
-  description="Book your appointment at The Face Lab Studio online. Treatments available at our Witney and Cotswolds salons."
+  description="Book your appointment at The Face Lab Studio online. Treatments available at our Witney, Oxfordshire and Lechlade, Cotswolds salons. Instant confirmation via Fresha."
 >
-  <section class="section">
+  <section class="section book-page">
     <div class="container--text">
       <p class="eyebrow">Appointments</p>
       <h1>Book Online</h1>
-      <div class="book-options">
-        <a href="https://www.fresha.com/a/the-face-lab-oxfordshire-witney-76-high-street-r5n80gwm" target="_blank" rel="noopener" class="btn btn--primary">Book — Witney</a>
-        <a href="https://www.fresha.com/a/the-face-lab-cotswolds-lechlade-the-riverside-park-end-wharf-ihomrrjm" target="_blank" rel="noopener" class="btn btn--primary">Book — Cotswolds</a>
-      </div>
+      <div class="divider" style="margin: 1rem 0 1.5rem;"></div>
+      <p class="book-page__intro">Choose your preferred location below to view availability and book instantly via Fresha. No account needed — instant confirmation sent to your email.</p>
+    </div>
+
+    <div class="container book-cards">
+      <a href="https://www.fresha.com/a/the-face-lab-oxfordshire-witney-76-high-street-r5n80gwm" target="_blank" rel="noopener" class="book-card">
+        <div class="book-card__img">
+          <img src="/images/witney/witney-reception.jpeg" alt="The Face Lab Witney" loading="lazy" />
+        </div>
+        <div class="book-card__body">
+          <p class="eyebrow">Oxfordshire</p>
+          <h2 class="book-card__title">The Face Lab Witney</h2>
+          <p class="book-card__address">76 High Street, Witney, OX28 6HL</p>
+          <div class="book-card__hours">
+            <p><strong>Mon, Wed & Thu</strong> 9am – 9pm</p>
+            <p><strong>Fri</strong> 9am – 6pm &nbsp;·&nbsp; <strong>Sat</strong> 9am – 3pm</p>
+            <p><strong>Tue & Sun</strong> Closed</p>
+          </div>
+          <div class="book-card__rating">
+            <span class="stars">★★★★★</span>
+            <span>5.0 &nbsp;·&nbsp; 285+ reviews</span>
+          </div>
+          <span class="btn btn--primary book-card__btn">Book at Witney →</span>
+        </div>
+      </a>
+
+      <a href="https://www.fresha.com/a/the-face-lab-cotswolds-lechlade-the-riverside-park-end-wharf-ihomrrjm" target="_blank" rel="noopener" class="book-card">
+        <div class="book-card__img">
+          <img src="/images/cotswolds/cotswold-reception-chair.jpeg" alt="The Face Lab Cotswolds" loading="lazy" />
+        </div>
+        <div class="book-card__body">
+          <p class="eyebrow">Cotswolds</p>
+          <h2 class="book-card__title">The Face Lab Cotswolds</h2>
+          <p class="book-card__address">The Riverside, Lechlade, GL7 3AQ</p>
+          <div class="book-card__hours">
+            <p><strong>Mon</strong> 9am – 5pm &nbsp;·&nbsp; <strong>Tue & Wed</strong> 9am – 8pm</p>
+            <p><strong>Thu</strong> 11am – 6pm &nbsp;·&nbsp; <strong>Fri</strong> 9am – 5pm</p>
+            <p><strong>Sat</strong> 10am – 4pm &nbsp;·&nbsp; <strong>Sun</strong> Closed</p>
+          </div>
+          <div class="book-card__rating">
+            <span class="stars">★★★★★</span>
+            <span>4.9 &nbsp;·&nbsp; 47+ reviews</span>
+          </div>
+          <span class="btn btn--primary book-card__btn">Book at Cotswolds →</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="container--text book-page__note">
+      <p>Not sure which location to choose? <a href="/contact">Get in touch</a> and we'll help you find the right salon and treatment.</p>
     </div>
   </section>
 </Layout>
+
+<style>
+  .book-page { padding-top: var(--space-xl); }
+  .book-page__intro { font-size: 0.95rem; color: var(--mid); line-height: 1.8; font-weight: 300; }
+
+  .book-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: var(--space-lg);
+  }
+
+  .book-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--white);
+    transition: box-shadow 0.25s, border-color 0.25s, transform 0.25s;
+  }
+
+  .book-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 12px 40px rgba(42,13,20,0.12);
+    transform: translateY(-2px);
+  }
+
+  .book-card__img {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: var(--rule);
+  }
+
+  .book-card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .book-card:hover .book-card__img img { transform: scale(1.04); }
+
+  .book-card__body {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+  }
+
+  .book-card__title { font-size: 1.3rem; margin-top: 0.25rem; }
+  .book-card__address { font-size: 0.85rem; color: var(--mid); font-weight: 300; }
+
+  .book-card__hours {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .book-card__hours p { font-size: 0.82rem; color: var(--mid); font-weight: 300; }
+  .book-card__hours strong { font-weight: 500; color: var(--ink); }
+
+  .book-card__rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--mid);
+    margin-top: 0.5rem;
+  }
+
+  .stars { color: var(--accent); letter-spacing: 0.05em; }
+
+  .book-card__btn {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    align-self: flex-start;
+  }
+
+  .book-page__note {
+    margin-top: var(--space-lg);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--rule);
+    font-size: 0.85rem;
+    color: var(--soft);
+    font-weight: 300;
+  }
+
+  .book-page__note a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+
+  @media (max-width: 768px) {
+    .book-cards { grid-template-columns: 1fr; }
+  }
+</style>

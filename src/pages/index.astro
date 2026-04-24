@@ -67,7 +67,11 @@ const schema = JSON.stringify({
           <a href="https://www.fresha.com/a/the-face-lab-oxfordshire-witney-76-high-street-r5n80gwm" target="_blank" rel="noopener" class="btn btn--primary">Book — Witney</a>
           <a href="https://www.fresha.com/a/the-face-lab-cotswolds-lechlade-the-riverside-park-end-wharf-ihomrrjm" target="_blank" rel="noopener" class="btn btn--primary">Book — Cotswolds</a>
         </div>
-        <a href="/services-witney" class="btn btn--ghost hero__view-btn">View Treatments →</a>
+        <div class="hero__treatment-links">
+          <a href="/services-witney" class="hero__treatment-link">View Witney treatments →</a>
+          <span class="hero__treatment-sep">·</span>
+          <a href="/services-cotswolds" class="hero__treatment-link">View Cotswolds treatments →</a>
+        </div>
       </div>
     </div>
   </section>
@@ -114,7 +118,7 @@ const schema = JSON.stringify({
             <p class="eyebrow">Oxfordshire</p>
             <h3>The Face Lab Witney</h3>
             <p class="location-card__address">76 High Street, Witney, OX28 6HL</p>
-            <p class="location-card__hours">Mon, Wed–Thu 9am–9pm · Fri 9am–6pm · Sat 9am–3pm</p>
+            <p class="location-card__hours">Mon / Wed / Thu 9am–9pm &nbsp;·&nbsp; Fri 9am–6pm &nbsp;·&nbsp; Sat 9am–3pm &nbsp;·&nbsp; Tue &amp; Sun closed</p>
             <span class="location-card__link">View treatments →</span>
           </div>
         </a>
@@ -126,7 +130,7 @@ const schema = JSON.stringify({
             <p class="eyebrow">Cotswolds</p>
             <h3>The Face Lab Cotswolds</h3>
             <p class="location-card__address">The Riverside, Lechlade, GL7 3AQ</p>
-            <p class="location-card__hours">Mon 9am–5pm · Tue–Wed 9am–8pm · Thu 11am–6pm · Fri 9am–5pm · Sat 10am–4pm</p>
+            <p class="location-card__hours">Mon 9am–5pm &nbsp;·&nbsp; Tue / Wed 9am–8pm &nbsp;·&nbsp; Thu 11am–6pm &nbsp;·&nbsp; Fri 9am–5pm &nbsp;·&nbsp; Sat 10am–4pm</p>
             <span class="location-card__link">View treatments →</span>
           </div>
         </a>
@@ -243,11 +247,13 @@ const schema = JSON.stringify({
   .hero__title { color: #fff; font-size: clamp(2.4rem, 6vw, 4rem); margin-bottom: 1.25rem; }
   .hero__title em { font-style: italic; color: rgba(250,249,247,0.85); }
   .hero__sub { color: rgba(250,249,247,0.75); font-size: 1.05rem; line-height: 1.7; margin-bottom: 2rem; font-weight: 300; }
-  .hero__ctas { display: flex; flex-direction: column; gap: 1rem; }
+  .hero__ctas { display: flex; flex-direction: column; gap: 1.25rem; }
   .hero__book-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
   .hero__book-btns .btn--primary { flex: 1; min-width: 140px; justify-content: center; }
-  .hero__view-btn { align-self: flex-start; font-size: 0.78rem; opacity: 0.85; }
-  .hero__view-btn:hover { opacity: 1; }
+  .hero__treatment-links { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+  .hero__treatment-link { font-size: 0.78rem; color: rgba(250,249,247,0.6); text-decoration: none; letter-spacing: 0.02em; transition: color var(--transition); }
+  .hero__treatment-link:hover { color: rgba(250,249,247,0.9); }
+  .hero__treatment-sep { color: rgba(250,249,247,0.3); font-size: 0.75rem; }
   .btn--ghost { border-color: rgba(250,249,247,0.35); color: rgba(250,249,247,0.9); background: transparent; }
   .btn--ghost:hover { border-color: rgba(250,249,247,0.7); background: rgba(255,255,255,0.08); color: #fff; }
 

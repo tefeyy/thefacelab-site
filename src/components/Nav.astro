@@ -1,8 +1,6 @@
 ---
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/services-witney', label: 'Treatments' },
-  ,
   { href: '/about', label: 'About' },
   { href: '/gallery', label: 'Gallery' },
   { href: '/contact', label: 'Contact' },
@@ -29,6 +27,23 @@ const currentPath = Astro.url.pathname;
           {link.label}
         </a>
       ))}
+
+      <!-- Treatments dropdown -->
+      <div class="nav__dropdown">
+        <button class="nav__link nav__dropdown-trigger" aria-expanded="false">
+          Treatments <span class="nav__chevron">▾</span>
+        </button>
+        <div class="nav__dropdown-menu">
+          <a href="/services-witney" class="nav__dropdown-item">
+            <span class="nav__dropdown-label">Oxfordshire</span>
+            <span class="nav__dropdown-sub">76 High Street, Witney</span>
+          </a>
+          <a href="/services-cotswolds" class="nav__dropdown-item">
+            <span class="nav__dropdown-label">Cotswolds</span>
+            <span class="nav__dropdown-sub">The Riverside, Lechlade</span>
+          </a>
+        </div>
+      </div>
     </nav>
 
     <a href="/book" class="btn btn--primary nav__cta">Book Now</a>
@@ -44,14 +59,14 @@ const currentPath = Astro.url.pathname;
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(250,249,247,0.92);
+    background: rgba(250,249,247,0.94);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--rule);
   }
   .nav__inner {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
     height: 68px;
   }
   .nav__logo {
@@ -82,12 +97,57 @@ const currentPath = Astro.url.pathname;
     border-radius: 6px;
     transition: color var(--transition), background var(--transition);
     letter-spacing: 0.02em;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-sans);
   }
   .nav__link:hover, .nav__link--active {
     color: var(--ink);
     background: var(--accent-light);
   }
-  .nav__cta { font-size: 0.78rem; padding: 0.6rem 1.25rem; margin-left: 0.5rem; }
+
+  /* Dropdown */
+  .nav__dropdown { position: relative; }
+  .nav__dropdown-trigger { display: flex; align-items: center; gap: 0.3rem; }
+  .nav__chevron { font-size: 0.6rem; transition: transform var(--transition); display: inline-block; }
+  .nav__dropdown:hover .nav__chevron { transform: rotate(180deg); }
+  .nav__dropdown-menu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-md);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    min-width: 220px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition), transform var(--transition);
+    transform: translateX(-50%) translateY(-4px);
+  }
+  .nav__dropdown:hover .nav__dropdown-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+  }
+  .nav__dropdown-item {
+    display: flex;
+    flex-direction: column;
+    padding: 0.875rem 1.25rem;
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    transition: background var(--transition);
+  }
+  .nav__dropdown-item:last-child { border-bottom: none; }
+  .nav__dropdown-item:hover { background: var(--accent-light); }
+  .nav__dropdown-label { font-size: 0.85rem; font-weight: 500; color: var(--ink); }
+  .nav__dropdown-sub { font-size: 0.75rem; color: var(--soft); font-weight: 300; margin-top: 0.1rem; }
+
+  .nav__cta { font-size: 0.78rem; padding: 0.6rem 1.25rem; margin-left: 0.5rem; flex-shrink: 0; }
   .nav__burger { display: none; }
 
   @media (max-width: 768px) {

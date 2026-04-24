@@ -29,8 +29,16 @@ const legalLinks = [
       </div>
     </div>
 
-    <div class="footer__book">
+    <div class="footer__right">
       <a href="/book" class="btn btn--outline">Book Online</a>
+      <div class="footer__badge">
+        <div class="footer__badge-seal">
+          <div class="footer__badge-star">★</div>
+          <p class="footer__badge-title">Highly Recommended</p>
+          <p class="footer__badge-year">2026</p>
+          <p class="footer__badge-brand">fresha</p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -68,6 +76,41 @@ const legalLinks = [
   .footer__locations { display: flex; gap: var(--space-lg); }
   .footer__location { font-size: 0.8rem; color: var(--mid); font-weight: 300; }
   .footer__location-name { font-weight: 500; color: var(--ink); margin-bottom: 0.2rem; font-size: 0.8rem; }
+  .footer__right { display: flex; flex-direction: column; align-items: flex-end; gap: 1rem; }
+
+  /* Fresha badge */
+  .footer__badge { display: flex; justify-content: flex-end; }
+  .footer__badge-seal {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #7c6fbf, #5b4fa8);
+    border: 3px solid #b0a8c8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    box-shadow: 0 2px 8px rgba(91,79,168,0.25);
+    position: relative;
+  }
+  .footer__badge-star {
+    position: absolute;
+    top: -10px;
+    font-size: 0.65rem;
+    color: #5b4fa8;
+    background: #b0a8c8;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer__badge-title { font-size: 0.42rem; font-weight: 700; color: #fff; text-align: center; line-height: 1.2; letter-spacing: 0.02em; }
+  .footer__badge-year { font-size: 0.65rem; font-weight: 700; color: #fff; letter-spacing: -0.01em; }
+  .footer__badge-brand { font-size: 0.38rem; font-weight: 400; color: rgba(255,255,255,0.75); letter-spacing: 0.04em; margin-top: 1px; }
+
   .footer__bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
   .footer__legal { display: flex; gap: 1.25rem; flex-wrap: wrap; }
   .footer__legal a { font-size: 0.72rem; color: var(--soft); font-weight: 300; transition: color var(--transition); }
@@ -77,5 +120,6 @@ const legalLinks = [
   @media (max-width: 768px) {
     .footer__inner { grid-template-columns: 1fr; gap: var(--space-md); }
     .footer__locations { flex-direction: column; gap: var(--space-sm); }
+    .footer__right { align-items: flex-start; flex-direction: row; align-items: center; }
   }
 </style>

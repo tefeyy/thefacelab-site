@@ -63,9 +63,11 @@ const schema = JSON.stringify({
       <h1 class="hero__title">Where beauty<br><em>meets intention.</em></h1>
       <p class="hero__sub">Expert treatments in Witney, Oxfordshire<br>and Lechlade, Cotswolds.</p>
       <div class="hero__ctas">
-        <a href="https://www.fresha.com/a/the-face-lab-oxfordshire-witney-76-high-street-r5n80gwm" target="_blank" rel="noopener" class="btn btn--primary">Book — Witney</a>
-        <a href="https://www.fresha.com/a/the-face-lab-cotswolds-lechlade-the-riverside-park-end-wharf-ihomrrjm" target="_blank" rel="noopener" class="btn btn--primary hero__btn-outline">Book — Cotswolds</a>
-        <a href="/services-witney" class="btn btn--outline hero__btn-outline">View Treatments</a>
+        <div class="hero__book-btns">
+          <a href="https://www.fresha.com/a/the-face-lab-oxfordshire-witney-76-high-street-r5n80gwm" target="_blank" rel="noopener" class="btn btn--primary">Book — Witney</a>
+          <a href="https://www.fresha.com/a/the-face-lab-cotswolds-lechlade-the-riverside-park-end-wharf-ihomrrjm" target="_blank" rel="noopener" class="btn btn--primary">Book — Cotswolds</a>
+        </div>
+        <a href="/services-witney" class="btn btn--ghost hero__view-btn">View Treatments →</a>
       </div>
     </div>
   </section>
@@ -241,9 +243,13 @@ const schema = JSON.stringify({
   .hero__title { color: #fff; font-size: clamp(2.4rem, 6vw, 4rem); margin-bottom: 1.25rem; }
   .hero__title em { font-style: italic; color: rgba(250,249,247,0.85); }
   .hero__sub { color: rgba(250,249,247,0.75); font-size: 1.05rem; line-height: 1.7; margin-bottom: 2rem; font-weight: 300; }
-  .hero__ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .hero__btn-outline { border-color: rgba(250,249,247,0.4); color: #fff; }
-  .hero__btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+  .hero__ctas { display: flex; flex-direction: column; gap: 1rem; }
+  .hero__book-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+  .hero__book-btns .btn--primary { flex: 1; min-width: 140px; justify-content: center; }
+  .hero__view-btn { align-self: flex-start; font-size: 0.78rem; opacity: 0.85; }
+  .hero__view-btn:hover { opacity: 1; }
+  .btn--ghost { border-color: rgba(250,249,247,0.35); color: rgba(250,249,247,0.9); background: transparent; }
+  .btn--ghost:hover { border-color: rgba(250,249,247,0.7); background: rgba(255,255,255,0.08); color: #fff; }
 
   /* Stats */
   .stats { background: var(--accent); padding: 1.75rem 0; }

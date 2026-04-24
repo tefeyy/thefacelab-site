@@ -5,105 +5,160 @@ const treatments = [
   {
     category: "Brows",
     items: [
+      { name: "Wax & Shape", duration: "30 min", price: "£15" },
+      { name: "Signature Brows (Tint)", duration: "45 min", price: "£30" },
+      { name: "Hybrid Brows (Dye)", duration: "45 min", price: "£40" },
+      { name: "Hybrid Lamination (Dye)", duration: "1 hr", price: "£50" },
       { name: "Brow Lamination", duration: "1 hr", price: "£50" },
       { name: "Lamination Maintenance", duration: "30 min", price: "£35" },
-      { name: "Brow Tint", duration: "30 min", price: "£15" },
-      { name: "Brow Wax & Tint", duration: "45 min", price: "£25" },
     ]
   },
   {
     category: "Lashes",
     items: [
-      { name: "LVL Lash Lift & Tint", duration: "1 hr", price: "£55" },
       { name: "Lash Tint", duration: "30 min", price: "£15" },
-      { name: "Face Lab Lift Combo (Lamination & LVL)", duration: "1 hr", price: "£90" },
+      { name: "Lash Lift & Tint", duration: "1 hr", price: "£50" },
     ]
   },
   {
-    category: "Nails",
+    category: "Lip Blush (SPMU)",
     items: [
-      { name: "Gel Manicure", duration: "1 hr", price: "from £35" },
-      { name: "Gel Pedicure", duration: "1 hr", price: "from £40" },
-      { name: "Gel Polish (Hands)", duration: "45 min", price: "from £25" },
-      { name: "Gel Polish (Feet)", duration: "45 min", price: "from £30" },
-      { name: "Nail Art", duration: "varies", price: "POA" },
-    ]
-  },
-  {
-    category: "Skin Treatments",
-    items: [
-      { name: "Microneedling Glow Therapy", duration: "1 hr", price: "POA" },
-      { name: "Skin Peel", duration: "45 min", price: "POA" },
-      { name: "Million Dollar Platinum Package", duration: "1.5 hrs", price: "POA" },
-      { name: "Polynucleotide Needling", duration: "1 hr", price: "POA" },
-      { name: "Dermaplaning", duration: "45 min", price: "POA" },
-    ]
-  },
-  {
-    category: "Japanese Head Spa",
-    items: [
-      { name: "Japanese Head Spa Treatment", duration: "1 hr", price: "POA" },
-      { name: "Scalp Analysis & Treatment", duration: "45 min", price: "POA" },
-    ]
-  },
-  {
-    category: "Lymphatic Drainage",
-    items: [
-      { name: "Full Body Lymphatic Drainage", duration: "1 hr", price: "POA" },
-      { name: "Facial Lymphatic Drainage", duration: "45 min", price: "POA" },
-    ]
-  },
-  {
-    category: "Massage",
-    items: [
-      { name: "Full Body Massage", duration: "1 hr", price: "POA" },
-      { name: "Back, Neck & Shoulder Massage", duration: "30 min", price: "POA" },
-      { name: "Hot Stone Massage", duration: "1 hr", price: "POA" },
-    ]
-  },
-  {
-    category: "Body Wraps & Scrubs",
-    items: [
-      { name: "Full Body Wrap", duration: "1 hr", price: "POA" },
-      { name: "Body Scrub", duration: "45 min", price: "POA" },
-    ]
-  },
-  {
-    category: "Waxing",
-    items: [
-      { name: "Eyebrow Wax", duration: "15 min", price: "£10" },
-      { name: "Lip Wax", duration: "15 min", price: "£8" },
-      { name: "Full Leg Wax", duration: "45 min", price: "£35" },
-      { name: "Underarm Wax", duration: "20 min", price: "£15" },
-      { name: "Bikini Wax", duration: "30 min", price: "£20" },
-    ]
-  },
-  {
-    category: "Spray Tanning",
-    items: [
-      { name: "Full Body Spray Tan", duration: "30 min", price: "£30" },
-    ]
-  },
-  {
-    category: "Aesthetics",
-    items: [
-      { name: "Aesthetics Consultation", duration: "30 min", price: "POA" },
-      { name: "Anti-Wrinkle Injections", duration: "45 min", price: "POA" },
-      { name: "Dermal Fillers", duration: "1 hr", price: "POA" },
-    ]
-  },
-  {
-    category: "Wellness Injections & IV Drips",
-    items: [
-      { name: "Wellness Injection", duration: "30 min", price: "POA" },
-      { name: "IV Drip Therapy", duration: "45 min", price: "POA" },
+      { name: "Lip Blush", duration: "2 hrs", price: "£250" },
+      { name: "Ombre Lip Blush", duration: "2 hrs", price: "£275" },
+      { name: "Lip Blush Top Up (4–12 weeks)", duration: "1.5 hrs", price: "£95" },
+      { name: "Lip Blush Annual Top Up (6 months+)", duration: "1.5 hrs", price: "£180" },
     ]
   },
   {
     category: "Packages",
     items: [
+      { name: "Brow Lamination & LVL Lash Lift", duration: "1 hr 30 min", price: "£70" },
+      { name: "Signature Brows & LVL", duration: "1 hr 30 min", price: "£90" },
       { name: "Bronze Holiday Prep Package", duration: "1 hr 35 min", price: "£70", badge: "Save 26%" },
-      { name: "Bridal Package", duration: "varies", price: "POA" },
+    ]
+  },
+  {
+    category: "Nails",
+    items: [
+      { name: "Gel Polish — One Colour (Hands & Feet)", duration: "45 min", price: "£30" },
+      { name: "Builder Gel (inc. base & colour)", duration: "1 hr", price: "£40" },
+      { name: "Builder Gel Redo (inc. base & colour)", duration: "1 hr", price: "£40" },
+      { name: "Builder Gel Removal & Redo", duration: "1 hr 15 min", price: "£50" },
+      { name: "French Tips", duration: "add-on", price: "£5" },
+      { name: "Basic Nail Art", duration: "add-on", price: "£5" },
+      { name: "Advanced Nail Art", duration: "add-on", price: "£10" },
+      { name: "The Full Nail Art Experience", duration: "add-on", price: "£20" },
+      { name: "Full Glitter Set", duration: "add-on", price: "£5" },
+      { name: "Gel or Builder Gel Removal", duration: "30 min", price: "£15" },
+    ]
+  },
+  {
+    category: "Facial Menu — Skin Treatments",
+    items: [
+      { name: "The Face Lab Signature Skin", duration: "1 hr 30 min", price: "£135" },
+      { name: "Polynucleotide Needling", duration: "1 hr", price: "£100" },
+      { name: "Microneedling Glow Therapy", duration: "1 hr", price: "£90" },
+      { name: "Microneedling Glow — 3 Areas", duration: "1 hr 15 min", price: "£120" },
+      { name: "Skin Peel", duration: "45 min", price: "from £65" },
+      { name: "Deluxe Dermaplaning", duration: "1 hr", price: "from £40" },
+      { name: "The Miracle Mask", duration: "45 min", price: "£70" },
+      { name: "Oxy-Pro Facial", duration: "1 hr", price: "£85" },
+      { name: "Mummy To Be Facial", duration: "1 hr", price: "£80" },
+      { name: "Cowshed Relaxation Facial", duration: "35–60 min", price: "from £55" },
+    ]
+  },
+  {
+    category: "Japanese Head Spa",
+    items: [
+      { name: "Signature Japanese Head Spa", duration: "1 hr", price: "£85" },
+      { name: "Add Rough Blow Dry", duration: "add-on", price: "£10" },
+      { name: "Add Smooth Blow Dry", duration: "add-on", price: "£25" },
+      { name: "The Head Spa & Facial Experience", duration: "1 hr 30 min", price: "£120" },
+    ]
+  },
+  {
+    category: "Lymphatic Drainage",
+    items: [
+      { name: "Full Lymphatic Reset", duration: "2 hrs", price: "£180" },
+      { name: "Body Drain & Contour", duration: "1 hr 30 min", price: "£130" },
+      { name: "Arms Lymphatic Drainage", duration: "45 min", price: "£50" },
+      { name: "Legs Lymphatic Drainage", duration: "1 hr", price: "£65" },
+      { name: "Wood Therapy (add-on)", duration: "add-on", price: "£30" },
+    ]
+  },
+  {
+    category: "Massage",
+    items: [
+      { name: "Swedish Back, Neck & Shoulders", duration: "30 min", price: "£45" },
+      { name: "Indian Head Massage", duration: "45 min", price: "£45" },
+      { name: "Swedish Full Body", duration: "1 hr", price: "£70" },
+      { name: "Tranquility Sleep Pro", duration: "1 hr", price: "£70" },
+      { name: "Hot Stones — 30 min Back, Neck & Shoulders", duration: "30 min", price: "£55" },
+      { name: "Hot Stones — 45 min Full Body", duration: "45 min", price: "£75" },
+      { name: "Hot Stones — 60 min Full Body Indulgence", duration: "1 hr", price: "£95" },
+      { name: "Pregnancy Massage", duration: "45 min", price: "£60" },
+    ]
+  },
+  {
+    category: "Body Wraps & Scrubs",
+    items: [
+      { name: "Mud Wrap", duration: "1 hr", price: "£85" },
+      { name: "Oil Wrap", duration: "1 hr", price: "£85" },
+      { name: "Algae Wrap", duration: "1 hr", price: "£85" },
+      { name: "Himalayan Salt Scrub", duration: "45 min", price: "from £45" },
+    ]
+  },
+  {
+    category: "Waxing",
+    items: [
+      { name: "Upper Lip or Chin", duration: "15 min", price: "£10" },
+      { name: "Half Leg", duration: "30 min", price: "£30" },
+      { name: "Full Leg", duration: "45 min", price: "£42" },
+      { name: "Bikini Line", duration: "20 min", price: "£17" },
+      { name: "High Bikini Line", duration: "25 min", price: "£22" },
+      { name: "G String", duration: "30 min", price: "£33" },
+      { name: "Brazilian", duration: "30 min", price: "£35" },
+      { name: "Hollywood", duration: "35 min", price: "£40" },
+      { name: "Under Arm", duration: "20 min", price: "£18" },
+      { name: "Full Arm", duration: "30 min", price: "£28" },
+      { name: "Full Arm with Underarm", duration: "40 min", price: "£40" },
+      { name: "Chest & Stomach", duration: "30 min", price: "£40" },
+      { name: "Back", duration: "30 min", price: "£35" },
+      { name: "Back & Shoulders", duration: "35 min", price: "£40" },
+      { name: "Full Leg & Hollywood", duration: "1 hr 15 min", price: "£70" },
+      { name: "Full Leg & Bikini", duration: "1 hr", price: "£47" },
+      { name: "The Works (Full Leg, Full Arm, Underarm & Bikini)", duration: "1 hr 30 min", price: "£80" },
+    ]
+  },
+  {
+    category: "Spray Tanning",
+    items: [
+      { name: "Sienna X Full Body Spray Tan", duration: "30 min", price: "£30" },
+    ]
+  },
+  {
+    category: "Aesthetics (by Daisy — Registered Nurse)",
+    items: [
+      { name: "Classic Lips 0.5ml", duration: "45 min", price: "£110" },
+      { name: "Classic Lips 1.1ml", duration: "45 min", price: "£160" },
+      { name: "Russian Lips 0.5ml", duration: "45 min", price: "£160" },
+      { name: "Russian Lips 1.1ml", duration: "45 min", price: "£200" },
+      { name: "Lip Dissolving", duration: "30 min", price: "£200" },
+      { name: "Dissolve & Refill Package", duration: "1 hr", price: "£300" },
+      { name: "Non Surgical Rhinoplasty", duration: "45 min", price: "£250" },
+      { name: "Jaw / Cheeks / Chin", duration: "45 min", price: "£175" },
+      { name: "Marionette Lines / Nasolabial", duration: "45 min", price: "£175" },
+      { name: "Anti-Wrinkle — 1 Area", duration: "30 min", price: "£200" },
+      { name: "Anti-Wrinkle — 2 Areas", duration: "30 min", price: "£230" },
+      { name: "Anti-Wrinkle — 3 Areas", duration: "30 min", price: "£265" },
+      { name: "Skin Booster Profhilo", duration: "45 min", price: "£220" },
+      { name: "Skin Booster Seventy Hyal", duration: "45 min", price: "£200" },
+      { name: "Skin Booster Retrivane", duration: "45 min", price: "£150" },
+      { name: "Skin Booster Jalupro", duration: "45 min", price: "£250" },
+      { name: "Skin Booster Lumi Eyes", duration: "30 min", price: "£160" },
+      { name: "B12 Injection", duration: "15 min", price: "£30" },
+      { name: "Fat Dissolving — Small Area", duration: "30 min", price: "£90" },
+      { name: "Fat Dissolving — Large Area", duration: "30 min", price: "£140" },
     ]
   },
 ];
@@ -111,7 +166,7 @@ const treatments = [
 
 <Layout
   title="Treatments & Services | The Face Lab Cotswolds, Lechlade"
-  description="Browse our full treatment menu at The Face Lab Cotswolds — brow lamination, LVL lashes, skin treatments, nails, Japanese head spa, aesthetics and more. The Riverside, Lechlade."
+  description="Browse our full treatment menu at The Face Lab Cotswolds — brows, lashes, skin treatments, nails, Japanese head spa, massage, lymphatic drainage, aesthetics and more. The Riverside, Lechlade."
 >
   <section class="page-hero section">
     <div class="container--text">
@@ -140,7 +195,7 @@ const treatments = [
   <section class="section treatments">
     <div class="container">
       <div class="treatments__note">
-        <p>Prices marked <strong>POA</strong> (price on application) — please contact us or book a consultation for a personalised quote. All prices include a complimentary consultation.</p>
+        <p>All prices correct as of early 2026. Aesthetic treatments are carried out by Daisy, a fully qualified registered nurse. Prices marked <strong>from</strong> depend on treatment complexity — a complimentary consultation is included with your first appointment.</p>
       </div>
       {treatments.map(group => (
         <div class="treatment-group">
@@ -180,9 +235,9 @@ const treatments = [
   .page-hero { background: var(--white); border-bottom: 1px solid var(--rule); }
   .page-hero h1 { margin-top: 0.5rem; }
   .page-hero__sub { font-size: 0.95rem; color: var(--mid); font-weight: 300; }
-  .page-hero__hours { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.25rem; }
+  .page-hero__hours { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.2rem; }
   .page-hero__hours p { font-size: 0.85rem; color: var(--mid); font-weight: 300; }
-  .page-hero__hours strong { font-weight: 500; color: var(--ink); }
+  .page-hero__hours strong { font-weight: 500; color: var(--ink); display: inline-block; width: 2.5rem; }
   .treatments__note { background: var(--accent-light); border: 1px solid rgba(42,13,20,0.12); border-radius: var(--radius-sm); padding: 1rem 1.25rem; margin-bottom: var(--space-lg); font-size: 0.85rem; color: var(--mid); font-weight: 300; line-height: 1.6; }
   .treatment-group { margin-bottom: var(--space-lg); }
   .treatment-group__title { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--soft); margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--rule); }

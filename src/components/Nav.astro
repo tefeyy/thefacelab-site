@@ -34,14 +34,16 @@ const currentPath = Astro.url.pathname;
           Treatments <span class="nav__chevron">▾</span>
         </button>
         <div class="nav__dropdown-menu">
-          <a href="/services-witney" class="nav__dropdown-item">
-            <span class="nav__dropdown-label">Oxfordshire</span>
-            <span class="nav__dropdown-sub">76 High Street, Witney</span>
-          </a>
-          <a href="/services-cotswolds" class="nav__dropdown-item">
-            <span class="nav__dropdown-label">Cotswolds</span>
-            <span class="nav__dropdown-sub">The Riverside, Lechlade</span>
-          </a>
+          <div class="nav__dropdown-menu-inner">
+            <a href="/services-witney" class="nav__dropdown-item">
+              <span class="nav__dropdown-label">Oxfordshire</span>
+              <span class="nav__dropdown-sub">76 High Street, Witney</span>
+            </a>
+            <a href="/services-cotswolds" class="nav__dropdown-item">
+              <span class="nav__dropdown-label">Cotswolds</span>
+              <span class="nav__dropdown-sub">The Riverside, Lechlade</span>
+            </a>
+          </div>
         </div>
       </div>
     </nav>
@@ -115,7 +117,7 @@ const currentPath = Astro.url.pathname;
   .nav__dropdown:hover .nav__chevron { transform: rotate(180deg); }
   .nav__dropdown-menu {
     position: absolute;
-    top: calc(100% + 0.5rem);
+    top: 100%;
     left: 50%;
     transform: translateX(-50%);
     background: var(--bg);
@@ -126,13 +128,28 @@ const currentPath = Astro.url.pathname;
     overflow: hidden;
     opacity: 0;
     pointer-events: none;
-    transition: opacity var(--transition), transform var(--transition);
-    transform: translateX(-50%) translateY(-4px);
+    transition: opacity 0.15s ease;
+    padding-top: 0.5rem;
+  }
+  .nav__dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0.5rem;
+    background: transparent;
+  }
+  .nav__dropdown-menu-inner {
+    background: var(--bg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--rule);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    overflow: hidden;
   }
   .nav__dropdown:hover .nav__dropdown-menu {
     opacity: 1;
     pointer-events: auto;
-    transform: translateX(-50%) translateY(0);
   }
   .nav__dropdown-item {
     display: flex;

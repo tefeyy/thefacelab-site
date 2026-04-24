@@ -118,7 +118,15 @@ const schema = JSON.stringify({
             <p class="eyebrow">Oxfordshire</p>
             <h3>The Face Lab Witney</h3>
             <p class="location-card__address">76 High Street, Witney, OX28 6HL</p>
-            <p class="location-card__hours">Mon / Wed / Thu 9am–9pm &nbsp;·&nbsp; Fri 9am–6pm &nbsp;·&nbsp; Sat 9am–3pm &nbsp;·&nbsp; Tue &amp; Sun closed</p>
+            <div class="location-card__hours">
+                <p><strong>Mon</strong> 9am – 9pm</p>
+                <p><strong>Tue</strong> Closed</p>
+                <p><strong>Wed</strong> 9am – 9pm</p>
+                <p><strong>Thu</strong> 9am – 9pm</p>
+                <p><strong>Fri</strong> 9am – 6pm</p>
+                <p><strong>Sat</strong> 9am – 3pm</p>
+                <p><strong>Sun</strong> Closed</p>
+              </div>
             <span class="location-card__link">View treatments →</span>
           </div>
         </a>
@@ -130,7 +138,15 @@ const schema = JSON.stringify({
             <p class="eyebrow">Cotswolds</p>
             <h3>The Face Lab Cotswolds</h3>
             <p class="location-card__address">The Riverside, Lechlade, GL7 3AQ</p>
-            <p class="location-card__hours">Mon 9am–5pm &nbsp;·&nbsp; Tue / Wed 9am–8pm &nbsp;·&nbsp; Thu 11am–6pm &nbsp;·&nbsp; Fri 9am–5pm &nbsp;·&nbsp; Sat 10am–4pm</p>
+            <div class="location-card__hours">
+                <p><strong>Mon</strong> 9am – 5pm</p>
+                <p><strong>Tue</strong> 9am – 8pm</p>
+                <p><strong>Wed</strong> 9am – 8pm</p>
+                <p><strong>Thu</strong> 11am – 6pm</p>
+                <p><strong>Fri</strong> 9am – 5pm</p>
+                <p><strong>Sat</strong> 10am – 4pm</p>
+                <p><strong>Sun</strong> Closed</p>
+              </div>
             <span class="location-card__link">View treatments →</span>
           </div>
         </a>
@@ -250,10 +266,10 @@ const schema = JSON.stringify({
   .hero__ctas { display: flex; flex-direction: column; gap: 1.25rem; }
   .hero__book-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
   .hero__book-btns .btn--primary { flex: 1; min-width: 140px; justify-content: center; }
-  .hero__treatment-links { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
-  .hero__treatment-link { font-size: 0.78rem; color: rgba(250,249,247,0.6); text-decoration: none; letter-spacing: 0.02em; transition: color var(--transition); }
+  .hero__treatment-links { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; padding-left: 0; }
+  .hero__treatment-link { font-size: 0.78rem; color: rgba(250,249,247,0.55); text-decoration: none; letter-spacing: 0.02em; transition: color var(--transition); }
   .hero__treatment-link:hover { color: rgba(250,249,247,0.9); }
-  .hero__treatment-sep { color: rgba(250,249,247,0.3); font-size: 0.75rem; }
+  .hero__treatment-sep { color: rgba(250,249,247,0.25); font-size: 0.75rem; }
   .btn--ghost { border-color: rgba(250,249,247,0.35); color: rgba(250,249,247,0.9); background: transparent; }
   .btn--ghost:hover { border-color: rgba(250,249,247,0.7); background: rgba(255,255,255,0.08); color: #fff; }
 
@@ -279,7 +295,9 @@ const schema = JSON.stringify({
   .location-card__body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; gap: 0.4rem; }
   .location-card__body h3 { margin-top: 0.25rem; }
   .location-card__address { font-size: 0.85rem; color: var(--mid); font-weight: 300; }
-  .location-card__hours { font-size: 0.78rem; color: var(--soft); font-weight: 300; line-height: 1.5; margin-top: 0.25rem; }
+  .location-card__hours { margin-top: 0.5rem; }
+  .location-card__hours p { font-size: 0.78rem; color: var(--soft); font-weight: 300; line-height: 1.8; }
+  .location-card__hours p strong { color: var(--mid); font-weight: 500; display: inline-block; width: 2.5rem; }
   .location-card__link { margin-top: auto; padding-top: 1rem; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.04em; color: var(--accent); }
 
   /* About snap */

@@ -86,3 +86,35 @@ p { font-weight: 300; }
   .container { padding: 0 1.25rem; }
   .container--text { padding: 0 1.25rem; }
 }
+
+/* ============================================
+   MOBILE NAV — Global (not scoped to component)
+   ============================================ */
+
+/* Hide mobile menu by default everywhere */
+.nav__mobile {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+/* Show when JS adds this class */
+.nav__mobile.nav__mobile--open {
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Desktop: always hide mobile nav regardless */
+@media (min-width: 769px) {
+  .nav__mobile { display: none !important; }
+  .nav__burger { display: none !important; }
+}
+
+/* Mobile: show burger, hide desktop nav */
+@media (max-width: 768px) {
+  .nav__links { display: none !important; }
+  .nav__cta { display: none !important; }
+  .nav__burger { display: flex !important; }
+}

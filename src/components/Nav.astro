@@ -16,6 +16,7 @@ const currentPath = Astro.url.pathname;
       </div>
       <span class="nav__brand">The Face Lab Studio</span>
     </a>
+
     <nav class="nav__links" aria-label="Main navigation">
       {navLinks.map(link => (
         <a href={link.href} class={`nav__link ${currentPath === link.href ? 'nav__link--active' : ''}`}>
@@ -40,45 +41,70 @@ const currentPath = Astro.url.pathname;
         </div>
       </div>
     </nav>
+
     <a href="/book" class="btn btn--primary nav__cta">Book Now</a>
-    <button class="nav__burger" aria-label="Toggle menu" id="nav-burger">
+
+    <button class="nav__burger" id="nav-burger" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
   </div>
-  <div class="nav__mobile" id="nav-mobile">
-    <nav class="nav__mobile-links">
-      <a href="/" class="nav__mobile-link">Home</a>
-      <div class="nav__mobile-section">
-        <p class="nav__mobile-section-label">Treatments</p>
-        <a href="/services-witney" class="nav__mobile-link nav__mobile-link--sub">Oxfordshire — Witney</a>
-        <a href="/services-cotswolds" class="nav__mobile-link nav__mobile-link--sub">Cotswolds — Lechlade</a>
+
+  <!-- Mobile menu: hidden via inline style, shown via JS inline style -->
+  <div id="nav-mobile" style="display:none;position:fixed;top:68px;left:0;right:0;bottom:0;background:#faf9f7;overflow-y:auto;z-index:9999;border-top:1px solid #e4e2dd;">
+    <nav style="display:flex;flex-direction:column;padding:1.5rem 1.25rem;">
+      <a href="/" style="font-size:1.1rem;font-weight:300;color:#1a1a1a;padding:1rem 0;border-bottom:1px solid #e4e2dd;text-decoration:none;">Home</a>
+      <div style="display:flex;flex-direction:column;border-bottom:1px solid #e4e2dd;padding:0.75rem 0;">
+        <p style="font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#a0a0a0;margin-bottom:0.5rem;">Treatments</p>
+        <a href="/services-witney" style="font-size:0.95rem;padding:0.6rem 0 0.6rem 0.75rem;color:#6b6b6b;text-decoration:none;">Oxfordshire — Witney</a>
+        <a href="/services-cotswolds" style="font-size:0.95rem;padding:0.6rem 0 0.6rem 0.75rem;color:#6b6b6b;text-decoration:none;">Cotswolds — Lechlade</a>
       </div>
-      <a href="/about" class="nav__mobile-link">About</a>
-      <a href="/gallery" class="nav__mobile-link">Gallery</a>
-      <a href="/contact" class="nav__mobile-link">Contact</a>
-      <div class="nav__mobile-book">
-        <a href="https://www.fresha.com/a/the-face-lab-oxfordshire-witney-76-high-street-r5n80gwm" target="_blank" rel="noopener" class="btn btn--primary nav__mobile-book-btn">Book — Witney</a>
-        <a href="https://www.fresha.com/a/the-face-lab-cotswolds-lechlade-the-riverside-park-end-wharf-ihomrrjm" target="_blank" rel="noopener" class="btn btn--primary nav__mobile-book-btn">Book — Cotswolds</a>
+      <a href="/about" style="font-size:1.1rem;font-weight:300;color:#1a1a1a;padding:1rem 0;border-bottom:1px solid #e4e2dd;text-decoration:none;">About</a>
+      <a href="/gallery" style="font-size:1.1rem;font-weight:300;color:#1a1a1a;padding:1rem 0;border-bottom:1px solid #e4e2dd;text-decoration:none;">Gallery</a>
+      <a href="/contact" style="font-size:1.1rem;font-weight:300;color:#1a1a1a;padding:1rem 0;border-bottom:1px solid #e4e2dd;text-decoration:none;">Contact</a>
+      <div style="display:flex;flex-direction:column;gap:0.75rem;margin-top:2rem;padding-bottom:2rem;">
+        <a href="https://www.fresha.com/a/the-face-lab-oxfordshire-witney-76-high-street-r5n80gwm" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;padding:0.875rem 1.75rem;background:#2a0d14;color:rgba(250,249,247,0.95);border-radius:8px;font-size:0.82rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Book — Witney</a>
+        <a href="https://www.fresha.com/a/the-face-lab-cotswolds-lechlade-the-riverside-park-end-wharf-ihomrrjm" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;padding:0.875rem 1.75rem;background:#2a0d14;color:rgba(250,249,247,0.95);border-radius:8px;font-size:0.82rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;">Book — Cotswolds</a>
       </div>
     </nav>
   </div>
 </header>
 
 <script>
-  const burger = document.getElementById('nav-burger');
-  const mobileMenu = document.getElementById('nav-mobile');
-  if (burger && mobileMenu) {
-    burger.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('nav__mobile--open');
-      burger.classList.toggle('nav__burger--open', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
+(function() {
+  var burger = document.getElementById('nav-burger');
+  var menu = document.getElementById('nav-mobile');
+  var isOpen = false;
+
+  if (!burger || !menu) return;
+
+  burger.addEventListener('click', function() {
+    isOpen = !isOpen;
+    menu.style.display = isOpen ? 'block' : 'none';
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    // Animate burger
+    var spans = burger.querySelectorAll('span');
+    if (isOpen) {
+      spans[0].style.transform = 'translateY(6.5px) rotate(45deg)';
+      spans[1].style.opacity = '0';
+      spans[2].style.transform = 'translateY(-6.5px) rotate(-45deg)';
+    } else {
+      spans[0].style.transform = '';
+      spans[1].style.opacity = '';
+      spans[2].style.transform = '';
+    }
+  });
+
+  // Close on any link click inside menu
+  menu.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      isOpen = false;
+      menu.style.display = 'none';
+      document.body.style.overflow = '';
+      var spans = burger.querySelectorAll('span');
+      spans[0].style.transform = '';
+      spans[1].style.opacity = '';
+      spans[2].style.transform = '';
     });
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('nav__mobile--open');
-        burger.classList.remove('nav__burger--open');
-        document.body.style.overflow = '';
-      });
-    });
-  }
+  });
+})();
 </script>

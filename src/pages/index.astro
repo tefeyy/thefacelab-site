@@ -331,16 +331,60 @@ const schema = JSON.stringify({
   .book-cta__btns .btn--primary { background: rgba(250,249,247,0.12); border-color: rgba(250,249,247,0.3); color: rgba(250,249,247,0.95); }
   .book-cta__btns .btn--primary:hover { background: rgba(250,249,247,0.22); border-color: rgba(250,249,247,0.6); box-shadow: none; }
 
-  /* Responsive */
-  @media (max-width: 900px) {
-    .locations__grid, .about-snap__inner, .reviews__grid { grid-template-columns: 1fr; }
-    .services__grid { grid-template-columns: repeat(2, 1fr); }
-    .stats__grid { gap: 1rem; }
-    .stat__divider { display: none; }
+  /* ============================================
+     MOBILE RESPONSIVE — Homepage
+     ============================================ */
+
+  /* Hero mobile */
+  @media (max-width: 768px) {
+    .hero { min-height: 85vh; }
+    .hero__content { padding: 5rem 1.25rem 3rem; }
+    .hero__title { font-size: clamp(1.8rem, 8vw, 2.8rem); }
+    .hero__sub { font-size: 0.95rem; }
+    .hero__book-btns { flex-direction: column; }
+    .hero__book-btns .btn { width: 100%; text-align: center; }
+    .hero__treatment-links { flex-direction: column; align-items: center; gap: 0.5rem; }
+    .hero__treatment-sep { display: none; }
   }
+
+  /* Stats mobile */
+  @media (max-width: 600px) {
+    .stats__grid { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    .stat__divider { display: none; }
+    .stat { min-width: calc(50% - 1rem); }
+  }
+
+  /* Locations mobile */
+  @media (max-width: 900px) {
+    .locations__grid { grid-template-columns: 1fr; }
+  }
+
+  /* About snap mobile */
+  @media (max-width: 900px) {
+    .about-snap__inner { grid-template-columns: 1fr; gap: var(--space-lg); }
+    .about-snap__img { aspect-ratio: 16/9; max-height: 320px; }
+  }
+
+  /* Services grid mobile */
+  @media (max-width: 900px) {
+    .services__grid { grid-template-columns: repeat(2, 1fr); }
+    .services__ctas { flex-direction: column; align-items: center; }
+    .services__ctas .btn { width: 100%; max-width: 320px; }
+  }
+
   @media (max-width: 540px) {
     .services__grid { grid-template-columns: 1fr; }
-    .hero__ctas { flex-direction: column; }
+  }
+
+  /* Reviews mobile */
+  @media (max-width: 900px) {
+    .reviews__grid { grid-template-columns: 1fr; }
+  }
+
+  /* Book CTA mobile */
+  @media (max-width: 600px) {
+    .book-cta__btns { flex-direction: column; align-items: center; }
+    .book-cta__btns .btn { width: 100%; max-width: 320px; }
   }
 </style>
 </Layout>

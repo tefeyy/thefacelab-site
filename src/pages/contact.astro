@@ -1,15 +1,259 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
+
 <Layout
   title="Contact Us | The Face Lab Studio — Witney & Cotswolds"
-  description="Get in touch with The Face Lab Studio. Find us at 76 High Street Witney or The Riverside Lechlade. Book online via Fresha."
+  description="Get in touch with The Face Lab Studio. Find us at 76 High Street Witney, Oxfordshire or The Riverside, Lechlade, Cotswolds. Book online via Fresha."
 >
-  <section class="section">
+
+  <!-- HERO -->
+  <section class="page-hero section">
     <div class="container--text">
       <p class="eyebrow">Get in Touch</p>
       <h1>Contact</h1>
-      <!-- Contact form, map embeds, addresses go here -->
+      <div class="divider" style="margin: 1rem 0;"></div>
+      <p class="page-hero__sub">We'd love to hear from you. Find us at either of our salons, or reach out via social media or our booking platform.</p>
     </div>
   </section>
+
+  <!-- LOCATIONS -->
+  <section class="section contact-locations">
+    <div class="container contact-grid">
+
+      <!-- Witney -->
+      <div class="contact-card">
+        <div class="contact-card__img">
+          <img src="/images/witney/witney-reception.jpeg" alt="The Face Lab Witney" loading="lazy" />
+        </div>
+        <div class="contact-card__body">
+          <p class="eyebrow">Oxfordshire</p>
+          <h2 class="contact-card__title">The Face Lab Witney</h2>
+
+          <div class="contact-detail">
+            <span class="contact-detail__icon">📍</span>
+            <div>
+              <p>76 High Street</p>
+              <p>Witney, OX28 6HL</p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <span class="contact-detail__icon">🕐</span>
+            <div class="hours-list">
+              <p><strong>Mon</strong> 9am – 9pm</p>
+              <p><strong>Tue</strong> Closed</p>
+              <p><strong>Wed</strong> 9am – 9pm</p>
+              <p><strong>Thu</strong> 9am – 9pm</p>
+              <p><strong>Fri</strong> 9am – 6pm</p>
+              <p><strong>Sat</strong> 9am – 3pm</p>
+              <p><strong>Sun</strong> Closed</p>
+            </div>
+          </div>
+
+          <div class="contact-card__actions">
+            <a href="https://www.fresha.com/a/the-face-lab-oxfordshire-witney-76-high-street-r5n80gwm" target="_blank" rel="noopener" class="btn btn--primary">Book Online</a>
+            <a href="https://maps.google.com/?q=76+High+Street+Witney+OX28+6HL" target="_blank" rel="noopener" class="btn btn--outline">Get Directions</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cotswolds -->
+      <div class="contact-card">
+        <div class="contact-card__img">
+          <img src="/images/cotswolds/cotswold-reception-chair.jpeg" alt="The Face Lab Cotswolds" loading="lazy" />
+        </div>
+        <div class="contact-card__body">
+          <p class="eyebrow">Cotswolds</p>
+          <h2 class="contact-card__title">The Face Lab Cotswolds</h2>
+
+          <div class="contact-detail">
+            <span class="contact-detail__icon">📍</span>
+            <div>
+              <p>The Riverside, Park End Wharf</p>
+              <p>Lechlade, GL7 3AQ</p>
+            </div>
+          </div>
+
+          <div class="contact-detail contact-detail--parking">
+            <span class="contact-detail__icon">🚗</span>
+            <div>
+              <p class="contact-detail__note">Located within the carpark of the Riverside Pub. Pay & display parking on site. Free parking also available on the high street and at Lechlade Memorial Hall (5–10 min walk).</p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <span class="contact-detail__icon">🕐</span>
+            <div class="hours-list">
+              <p><strong>Mon</strong> 9am – 5pm</p>
+              <p><strong>Tue</strong> 9am – 8pm</p>
+              <p><strong>Wed</strong> 9am – 8pm</p>
+              <p><strong>Thu</strong> 11am – 6pm</p>
+              <p><strong>Fri</strong> 9am – 5pm</p>
+              <p><strong>Sat</strong> 10am – 4pm</p>
+              <p><strong>Sun</strong> Closed</p>
+            </div>
+          </div>
+
+          <div class="contact-card__actions">
+            <a href="https://www.fresha.com/a/the-face-lab-cotswolds-lechlade-the-riverside-park-end-wharf-ihomrrjm" target="_blank" rel="noopener" class="btn btn--primary">Book Online</a>
+            <a href="https://maps.google.com/?q=The+Riverside+Park+End+Wharf+Lechlade+GL7+3AQ" target="_blank" rel="noopener" class="btn btn--outline">Get Directions</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STUDIO POLICIES -->
+  <section class="section policies">
+    <div class="container--text">
+      <p class="eyebrow">Good to Know</p>
+      <h2>Studio Policies</h2>
+      <div class="divider" style="margin: 1rem 0 2rem;"></div>
+      <div class="policy-grid">
+        <div class="policy-item">
+          <p class="policy-item__title">Arriving on Time</p>
+          <p>Please arrive on time for your appointment. Our lateness cut-off is 10 minutes — anything beyond this will be charged at 100% and automatically cancelled. Please plan your journey, including time to park.</p>
+        </div>
+        <div class="policy-item">
+          <p class="policy-item__title">Children & Plus Ones</p>
+          <p>Due to limited space and insurance requirements, we operate a strict no children policy. We also kindly ask that you attend your appointment alone — no friends or family, so we can maintain a calm environment for all clients.</p>
+        </div>
+        <div class="policy-item">
+          <p class="policy-item__title">During Your Visit</p>
+          <p>Multiple appointments take place simultaneously. Please be respectful of other clients and therapists. We ask that no food is brought into the salon to keep our space clean and relaxing for everyone.</p>
+        </div>
+        <div class="policy-item">
+          <p class="policy-item__title">Cancellations</p>
+          <p>We require at least 24 hours notice for cancellations or rescheduling. Late cancellations may be subject to a charge. Repeated no-shows may require a deposit for future bookings.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL & CONTACT CTA -->
+  <section class="book-cta">
+    <div class="container book-cta__inner">
+      <h2>Follow us on Instagram</h2>
+      <p>Keep up with the latest treatments, results and news from both salons.</p>
+      <div class="book-cta__btns">
+        <a href="https://www.instagram.com/thefacelab.oxfordshire" target="_blank" rel="noopener" class="btn btn--primary">@thefacelab.oxfordshire</a>
+        <a href="https://www.instagram.com/thefacelab.cotswolds" target="_blank" rel="noopener" class="btn btn--primary">@thefacelab.cotswolds</a>
+      </div>
+    </div>
+  </section>
+
 </Layout>
+
+<style>
+  /* Page hero */
+  .page-hero { background: var(--white); border-bottom: 1px solid var(--rule); }
+  .page-hero h1 { margin-top: 0.5rem; }
+  .page-hero__sub { font-size: 0.95rem; color: var(--mid); line-height: 1.8; font-weight: 300; }
+
+  /* Contact grid */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+  .contact-card {
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--white);
+  }
+
+  .contact-card__img {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: var(--rule);
+  }
+
+  .contact-card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .contact-card__body {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .contact-card__title { font-size: 1.3rem; margin-top: 0.25rem; }
+
+  .contact-detail {
+    display: flex;
+    gap: 0.875rem;
+    align-items: flex-start;
+  }
+
+  .contact-detail__icon {
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    opacity: 0.6;
+  }
+
+  .contact-detail p {
+    font-size: 0.88rem;
+    color: var(--mid);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .contact-detail--parking .contact-detail__note {
+    font-size: 0.82rem;
+    color: var(--soft);
+    font-style: italic;
+  }
+
+  .hours-list { display: flex; flex-direction: column; gap: 0.15rem; }
+  .hours-list p { font-size: 0.83rem; color: var(--mid); font-weight: 300; }
+  .hours-list strong { font-weight: 500; color: var(--ink); display: inline-block; width: 2.5rem; }
+
+  .contact-card__actions { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; }
+  .contact-card__actions .btn { flex: 1; justify-content: center; min-width: 120px; }
+
+  /* Policies */
+  .policies { background: var(--white); }
+  .policy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+  .policy-item {
+    padding: 1.5rem;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-md);
+    background: var(--bg);
+  }
+
+  .policy-item__title {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .policy-item p:last-child {
+    font-size: 0.85rem;
+    color: var(--mid);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* Book CTA */
+  .book-cta { background: var(--accent); padding: var(--space-xl) 0; text-align: center; }
+  .book-cta__inner h2 { color: rgba(250,249,247,0.95); margin-bottom: 0.75rem; }
+  .book-cta__inner p { color: rgba(250,249,247,0.6); font-weight: 300; margin-bottom: 2rem; }
+  .book-cta__btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .book-cta__btns .btn--primary { background: rgba(250,249,247,0.12); border-color: rgba(250,249,247,0.3); color: rgba(250,249,247,0.95); }
+  .book-cta__btns .btn--primary:hover { background: rgba(250,249,247,0.22); border-color: rgba(250,249,247,0.6); box-shadow: none; }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .policy-grid { grid-template-columns: 1fr; }
+    .contact-card__actions { flex-direction: column; }
+    .contact-card__actions .btn { flex: unset; width: 100%; }
+  }
+</style>

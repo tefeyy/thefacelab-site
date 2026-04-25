@@ -84,14 +84,15 @@ const path = Astro.url.pathname;
 </div>
 
 <script>
-function toggleMenu() {
+// Expose toggleMenu globally so onclick= attributes can find it
+window.toggleMenu = function() {
   var m = document.getElementById('mobile-menu');
   var b = document.getElementById('burger');
   var open = m.style.display === 'block';
   m.style.display = open ? 'none' : 'block';
   b.classList.toggle('open', !open);
   document.body.style.overflow = open ? '' : 'hidden';
-}
+};
 </script>
 
 <style is:global>

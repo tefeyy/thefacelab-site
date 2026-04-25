@@ -84,7 +84,7 @@ const path = Astro.url.pathname;
 </div>
 
 <script>
-// Expose toggleMenu globally so onclick= attributes can find it
+// Mobile menu toggle
 window.toggleMenu = function() {
   var m = document.getElementById('mobile-menu');
   var b = document.getElementById('burger');
@@ -93,6 +93,28 @@ window.toggleMenu = function() {
   b.classList.toggle('open', !open);
   document.body.style.overflow = open ? '' : 'hidden';
 };
+
+// Desktop dropdown - click to open, click elsewhere to close
+document.addEventListener('DOMContentLoaded', function() {
+  var btn = document.querySelector('.nav-drop-btn');
+  var panel = document.querySelector('.nav-drop-panel');
+  if (!btn || !panel) return;
+
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    panel.classList.toggle('open');
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', function() {
+    panel.classList.remove('open');
+  });
+
+  // Keep open when clicking inside panel
+  panel.addEventListener('click', function(e) {
+    e.stopPropagation();
+  });
+});
 </script>
 
 <style is:global>
@@ -124,12 +146,17 @@ window.toggleMenu = function() {
 .nav-drop { position: relative; }
 .nav-drop-btn { display: flex; align-items: center; gap: 0.3rem; }
 .nav-drop-panel {
-  display: none; position: absolute; top: calc(100% + 0.5rem); left: 50%;
+  display: none; position: absolute; top: 100%; left: 50%;
   transform: translateX(-50%); min-width: 220px;
   background: #faf9f7; border: 1px solid #e4e2dd; border-radius: 12px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.1); overflow: hidden; z-index: 200;
+  padding-top: 0.5rem; margin-top: 0;
 }
-.nav-drop:hover .nav-drop-panel { display: block; }
+.nav-drop-panel::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 0.5rem;
+  background: transparent;
+}
+.nav-drop-panel.open { display: block; }
 .nav-drop-item {
   display: flex; flex-direction: column; padding: 0.875rem 1.25rem;
   text-decoration: none; border-bottom: 1px solid #e4e2dd; transition: background 0.2s;

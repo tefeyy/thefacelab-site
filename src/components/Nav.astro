@@ -16,8 +16,6 @@ const currentPath = Astro.url.pathname;
       </div>
       <span class="nav__brand">The Face Lab Studio</span>
     </a>
-
-    <!-- Desktop nav -->
     <nav class="nav__links" aria-label="Main navigation">
       {navLinks.map(link => (
         <a href={link.href} class={`nav__link ${currentPath === link.href ? 'nav__link--active' : ''}`}>
@@ -25,7 +23,7 @@ const currentPath = Astro.url.pathname;
         </a>
       ))}
       <div class="nav__dropdown">
-        <button class="nav__link nav__dropdown-trigger" aria-expanded="false">
+        <button class="nav__link nav__dropdown-trigger">
           Treatments <span class="nav__chevron">▾</span>
         </button>
         <div class="nav__dropdown-menu">
@@ -42,17 +40,12 @@ const currentPath = Astro.url.pathname;
         </div>
       </div>
     </nav>
-
     <a href="/book" class="btn btn--primary nav__cta">Book Now</a>
-
-    <!-- Mobile burger -->
-    <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false" id="nav-burger">
+    <button class="nav__burger" aria-label="Toggle menu" id="nav-burger">
       <span></span><span></span><span></span>
     </button>
   </div>
-
-  <!-- Mobile menu -->
-  <div class="nav__mobile" id="nav-mobile" aria-hidden="true">
+  <div class="nav__mobile" id="nav-mobile">
     <nav class="nav__mobile-links">
       <a href="/" class="nav__mobile-link">Home</a>
       <div class="nav__mobile-section">
@@ -64,8 +57,8 @@ const currentPath = Astro.url.pathname;
       <a href="/gallery" class="nav__mobile-link">Gallery</a>
       <a href="/contact" class="nav__mobile-link">Contact</a>
       <div class="nav__mobile-book">
-        <a href="https://www.fresha.com/a/the-face-lab-oxfordshire-witney-76-high-street-r5n80gwm" target="_blank" rel="noopener" class="btn btn--primary" style="width:100%;justify-content:center;">Book — Witney</a>
-        <a href="https://www.fresha.com/a/the-face-lab-cotswolds-lechlade-the-riverside-park-end-wharf-ihomrrjm" target="_blank" rel="noopener" class="btn btn--primary" style="width:100%;justify-content:center;">Book — Cotswolds</a>
+        <a href="https://www.fresha.com/a/the-face-lab-oxfordshire-witney-76-high-street-r5n80gwm" target="_blank" rel="noopener" class="btn btn--primary nav__mobile-book-btn">Book — Witney</a>
+        <a href="https://www.fresha.com/a/the-face-lab-cotswolds-lechlade-the-riverside-park-end-wharf-ihomrrjm" target="_blank" rel="noopener" class="btn btn--primary nav__mobile-book-btn">Book — Cotswolds</a>
       </div>
     </nav>
   </div>
@@ -75,40 +68,34 @@ const currentPath = Astro.url.pathname;
   const burger = document.getElementById('nav-burger');
   const mobileMenu = document.getElementById('nav-mobile');
 
-  burger?.addEventListener('click', () => {
-    const isOpen = mobileMenu?.classList.toggle('nav__mobile--open');
-    burger.setAttribute('aria-expanded', String(isOpen));
-    burger.classList.toggle('nav__burger--open', isOpen);
-    document.body.classList.toggle('menu-open', isOpen);
-  });
-
-  // Close on link click
-  mobileMenu?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.remove('nav__mobile--open');
-      burger?.setAttribute('aria-expanded', 'false');
-      burger?.classList.remove('nav__burger--open');
-      document.body.classList.remove('menu-open');
+  if (burger && mobileMenu) {
+    burger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('nav__mobile--open');
+      burger.classList.toggle('nav__burger--open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
     });
-  });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('nav__mobile--open');
+        burger.classList.remove('nav__burger--open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
 </script>
 
 <style>
-  /* ---- NAV BASE ---- */
   .nav {
     position: sticky; top: 0; z-index: 100;
     background: rgba(250,249,247,0.94);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--rule);
   }
-
   .nav__inner { display: flex; align-items: center; gap: 1.5rem; height: 68px; }
-
   .nav__logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; flex-shrink: 0; }
   .nav__brand { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; color: var(--mid); }
-
   .nav__links { display: flex; align-items: center; gap: 0.25rem; margin-left: auto; }
-
   .nav__link {
     font-size: 0.82rem; font-weight: 400; color: var(--mid);
     padding: 0.4rem 0.75rem; border-radius: 6px;
@@ -123,16 +110,12 @@ const currentPath = Astro.url.pathname;
   .nav__dropdown-trigger { display: flex; align-items: center; gap: 0.3rem; }
   .nav__chevron { font-size: 0.6rem; transition: transform var(--transition); }
   .nav__dropdown:hover .nav__chevron { transform: rotate(180deg); }
-
   .nav__dropdown-menu {
     position: absolute; top: 100%; left: 50%;
-    transform: translateX(-50%);
-    padding-top: 0.5rem;
-    opacity: 0; pointer-events: none;
-    transition: opacity 0.15s ease;
+    transform: translateX(-50%); padding-top: 0.5rem;
+    opacity: 0; pointer-events: none; transition: opacity 0.15s ease; z-index: 200;
   }
   .nav__dropdown:hover .nav__dropdown-menu { opacity: 1; pointer-events: auto; }
-
   .nav__dropdown-menu-inner {
     background: var(--bg); border: 1px solid var(--rule);
     border-radius: var(--radius-md); box-shadow: 0 8px 32px rgba(0,0,0,0.1);
@@ -147,58 +130,53 @@ const currentPath = Astro.url.pathname;
   .nav__dropdown-item:hover { background: var(--accent-light); }
   .nav__dropdown-label { font-size: 0.85rem; font-weight: 500; color: var(--ink); }
   .nav__dropdown-sub { font-size: 0.75rem; color: var(--soft); font-weight: 300; margin-top: 0.1rem; }
-
   .nav__cta { font-size: 0.78rem; padding: 0.6rem 1.25rem; margin-left: 0.5rem; flex-shrink: 0; }
 
-  /* ---- BURGER ---- */
-  .nav__burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 0.5rem; margin-left: auto; }
-  .nav__burger span { display: block; width: 22px; height: 1.5px; background: var(--ink); transition: all 0.25s ease; transform-origin: center; }
+  /* Burger */
+  .nav__burger {
+    display: none; flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 0.5rem; margin-left: auto;
+  }
+  .nav__burger span {
+    display: block; width: 22px; height: 1.5px; background: var(--ink);
+    transition: all 0.25s ease; transform-origin: center;
+  }
   .nav__burger--open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
   .nav__burger--open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
   .nav__burger--open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-  /* ---- MOBILE MENU ---- */
+  /* Mobile menu — uses visibility/opacity so NO display:none conflicts */
   .nav__mobile {
-    display: none;
     position: fixed; top: 68px; left: 0; right: 0; bottom: 0;
-    background: var(--bg);
-    overflow-y: auto;
-    z-index: 99;
+    background: var(--bg); overflow-y: auto; z-index: 99;
     border-top: 1px solid var(--rule);
+    visibility: hidden; opacity: 0; pointer-events: none;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
   }
-
-  @media (max-width: 768px) {
-    .nav__mobile {
-      display: block;
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-    }
-    .nav__mobile--open { transform: translateX(0); }
+  .nav__mobile--open {
+    visibility: visible; opacity: 1; pointer-events: auto;
   }
-
-  .nav__mobile-links { display: flex; flex-direction: column; padding: 1.5rem 1.25rem; gap: 0; }
-
+  .nav__mobile-links { display: flex; flex-direction: column; padding: 1.5rem 1.25rem; }
   .nav__mobile-link {
     font-size: 1.1rem; font-weight: 300; color: var(--ink);
     padding: 1rem 0; border-bottom: 1px solid var(--rule);
-    text-decoration: none; letter-spacing: -0.01em;
-    transition: color var(--transition);
+    text-decoration: none; transition: color var(--transition);
   }
   .nav__mobile-link:hover { color: var(--accent); }
-
   .nav__mobile-section { display: flex; flex-direction: column; border-bottom: 1px solid var(--rule); padding: 0.75rem 0; }
   .nav__mobile-section-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--soft); margin-bottom: 0.5rem; }
+  .nav__mobile-link--sub { font-size: 0.95rem; padding: 0.6rem 0 0.6rem 0.75rem; border-bottom: none; color: var(--mid); }
+  .nav__mobile-book { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 2rem; padding-bottom: 2rem; }
+  .nav__mobile-book-btn { width: 100%; justify-content: center; }
 
-  .nav__mobile-link--sub { font-size: 0.95rem; padding: 0.6rem 0; border-bottom: none; color: var(--mid); padding-left: 0.75rem; }
-  .nav__mobile-link--sub:hover { color: var(--accent); }
-
-  .nav__mobile-book { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 2rem; }
-
-  /* ---- RESPONSIVE BREAKPOINTS ---- */
+  /* Responsive */
   @media (max-width: 768px) {
-    .nav__links, .nav__cta { display: none; }
+    .nav__links { display: none; }
+    .nav__cta { display: none; }
     .nav__burger { display: flex; }
-    .nav__mobile { display: block; }
-    body.menu-open { overflow: hidden; }
+  }
+
+  @media (min-width: 769px) {
+    .nav__mobile { display: none !important; }
   }
 </style>

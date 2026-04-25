@@ -163,13 +163,18 @@ const currentPath = Astro.url.pathname;
     position: fixed; top: 68px; left: 0; right: 0; bottom: 0;
     background: var(--bg);
     overflow-y: auto;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
     z-index: 99;
     border-top: 1px solid var(--rule);
   }
 
-  .nav__mobile--open { transform: translateX(0); }
+  @media (max-width: 768px) {
+    .nav__mobile {
+      display: block;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+    .nav__mobile--open { transform: translateX(0); }
+  }
 
   .nav__mobile-links { display: flex; flex-direction: column; padding: 1.5rem 1.25rem; gap: 0; }
 
